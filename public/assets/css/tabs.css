@@ -151,7 +151,7 @@ hr {
 }
 
 input {
-  width: calc(100vw - 185px);
+  width: calc(100vw - 223px);
   max-width: 1100px;
   padding: 10px;
   border: 1px solid var(--border);
@@ -160,7 +160,7 @@ input {
   margin: 0;
   display: inline-block;
   vertical-align: middle;
-  min-width: calc(100vw - 185px);
+  min-width: calc(100vw - 223px);
   outline: none;
 }
 

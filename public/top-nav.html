@@ -17,6 +17,9 @@
     property="og:description">
 
   <style>
+    body {
+      overflow:hidden;
+    }
     .navbar {
       position: fixed;
       top: -40px;
@@ -450,7 +453,7 @@
       <ul class="navbar-links">
         <li data-url="/yalp/"><i class='bx bx-joystick'></i><span>Gልmes</span></li>
         <li data-url="/sppa/"><i class='bx bx-grid-alt'></i><span>Shortcuts</span></li>
-        <li data-url="/yxorp/"><i class='bx bx-search-alt'></i><span>Search</span></li>
+        <li data-url="/active/"><i class='bx bx-search-alt'></i><span>Search</span></li>
         <li data-url="/AI/"><i class='bx bx-bot'></i><span>ልI</span></li>
         <li data-url="/media/"><i class='bx bx-camera-movie'></i><span>Media</span></li>
         <li data-url="/xtra.html"><i class='bx bx-plus-circle'></i><span>Extras</span></li>
@@ -460,7 +463,7 @@
     </div>
   </div>
 
-  <iframe id="main-frame" src="main.html"></iframe>
+  <iframe id="main-frame" src="main.html" style="background:var(--bgcolor);"></iframe>
   <div class="settings-wrapper">
     <div class="settings-buttons">
       <button data-section="cloaking" class="active"><i class='bx bx-ghost'></i> Cloaking</button>
@@ -482,8 +485,10 @@
           <div class="setting-card">
             <h1>Ads</h1>
             <p class="desc">Enable or disable ads (on by default).</p>
-            <button id="enableAds" class="btn">Enable Ads</button>
-            <button id="disableAds">Disable Ads</button>
+            <label class="switch">
+              <input type="checkbox" id="adsToggle">
+              <span class="slider"></span>
+            </label>
           </div>
 
           <div class="setting-card">
@@ -513,6 +518,19 @@
           </div>
 
           <div class="setting-card">
+            <h1>Translator</h1>
+            <p class="desc">Translates the website to whatever you choose.</p>
+                <div style="background:transparent; border-radius: 4px; width:300px;" id="google_translate_element"></div>
+
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: "en", layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL }, "google_translate_element");
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+          </div>
+
+          <div class="setting-card">
             <h1>About</h1>
             <p><strong>Version:</strong> 7.0.0</p>
             <p class="rtabtxt">This is the 7th version of Jordan's Math Work, which is a complete rewrite of the
@@ -521,8 +539,7 @@
             </p>
             <p class="rtabtxt">If you have any issues or suggestions, please feel free to open an issue on the GitHub
               repository.</p>
-            <p><strong>GitHub:</strong> <a href="//github.com/galacticnetwork/jordansmathwork-v7"
-                target="_blank">Repository</a></p>
+            <p><strong>GitHub:</strong> <a href="//github.com/JustJxrdanWasDefinetlyTaken/jmw-node" target="_blank">Repository</a></p>
           </div>
         </div>
       </div>
@@ -569,7 +586,11 @@
             <br>
             <br>
           </div>
-
+          <div class="setting-card">
+            <h1>Launching in BLOB</h1>
+            <p class="desc">Launches the site in a blob string, making it semi-undetectable to goguardian's auto redirect.</p>
+            <button onclick="launchBlob()" class="btn">Launch in BLOB (semi-undetectable)</button>
+          </div>
           <div class="setting-card">
             <h1>Anti-Tab Close</h1>
             <p class="desc">Makes your immune to being closed by teachers, useful for goguardian.</p>
@@ -588,7 +609,7 @@
             <h1>Themes</h1>
             <p class="desc">Customize the page how you like it.</p>
             <select id="themepicker">
-              <option value="select">Select Theme</option>
+              <option value="select" disabled selected>Select Theme</option>
               <option value="classic">Classic</option>
               <option value="dark">Dark</option>
               <option value="light">Light</option>
@@ -604,9 +625,20 @@
             <h1>Navigation Position</h1>
             <p class="desc">Customize navbar positioning.</p>
             <select id="navbar-select">
-              <option value="side" selected>Side Navigation</option>
-              <option value="top">Top Navigation</option>
+              <option value="side">Side Navigation</option>
+              <option value="top" disabled selected>Top Navigation</option>
             </select>
+          </div>
+                    <div class="setting-card">
+            <h1>Prσxy option</h1>
+            <p class="desc">Changes prσxy.</p>
+            <select id="pr0xySelect">
+              <option disabled value="">Select</option>
+              <option value="vu">UV</option>
+              <option value="scram">Scramjet</option>
+            </select>
+            <br>
+            <br>
           </div>
         </div>
       </div>
@@ -619,6 +651,19 @@
 <script src="/assets/scripts/debug.js"></script>
 <script src="/assets/scripts/navbar.js"></script>
 <script src="/assets/scripts/navbar-selection.js"></script>
+  <script>
+if (window.location.search) {
+  window.history.replaceState({}, "", window.location.pathname);
+}
+if (!window.location.search) {
+  const lastRedirect = localStorage.getItem("lastRedirect");
+  const now = Date.now();
+  if (!lastRedirect || now - lastRedirect >= 24 * 60 * 60 * 1000) {
+    localStorage.setItem("lastRedirect", now);
+    window.location.replace("/active/index.html?autofill=lookatthisistworkguys&goback=true");
+  }
+}
+</script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const links = document.querySelectorAll('.navbar-links li');
@@ -703,127 +748,123 @@
   });
 </script>
 <script>
-  const musicSelect = document.getElementById('musicSelect');
-  const musicUpload = document.getElementById('musicUpload');
-  const volumeControl = document.getElementById('volumeControl');
-  const playBtn = document.getElementById('playBtn');
-  const stopBtn = document.getElementById('stopBtn');
-
-  let audio = new Audio();
-  audio.loop = true;
-  audio.volume = 0.4;
-  let isStopped = false;
-
-  function loadMusic(source) {
-    audio.pause();
-    audio.src = source;
-    audio.currentTime = 0;
-    if (!isStopped) {
-      audio.play().catch(err => console.error('Error playing music:', err));
-    }
+const musicSelect = document.getElementById('musicSelect');
+const pr0xySelect = document.getElementById("pr0xySelect");
+const musicUpload = document.getElementById('musicUpload');
+const volumeControl = document.getElementById('volumeControl');
+const playBtn = document.getElementById('playBtn');
+const stopBtn = document.getElementById('stopBtn');
+let audio = new Audio();
+audio.loop = true;
+audio.volume = 0.4;
+let isStopped = false;
+function loadMusic(source) {
+  audio.pause();
+  audio.src = source;
+  audio.currentTime = 0;
+  if (!isStopped) {
+    audio.play().catch(err => console.error('Error playing music:', err));
   }
-
-  musicSelect.addEventListener('change', function () {
-    const selected = this.value;
-    localStorage.setItem('selectedMusic', selected);
-
-    if (selected === 'custom') {
-      musicUpload.style.display = 'block';
-      const customData = localStorage.getItem('customMusic');
-      if (customData) {
-        loadMusic(customData);
-      }
-      return;
-    }
-
-    musicUpload.style.display = 'none';
-
-    if (selected === 'none') {
-      audio.pause();
-      audio.src = '';
-      return;
-    }
-
-    if (selected === 'solidground') {
-      loadMusic('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/o@main/solidground.mp3');
-    }
-    else if (selected === 'pearto') {
-      loadMusic('/assets/audio/pearto.mp3');
-    }
-    else if (selected === 'truelove') {
-      loadMusic('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/o@main/true-love.mp3');
-    }
-    else if (selected === 'olympian') {
-      loadMusic('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/o@main/olympian.mp3');
-    }
-    else if (selected === 'cancun') {
-      loadMusic('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/o@main/cancun.mp3');
-    }
-    else if (selected === 'cknose') {
-      loadMusic('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/o@main/cocainenose.mp3');
-    }
-    else if (selected === 'eviljrdn') {
-      loadMusic('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/o@main/eviljordan.mp3');
-    }
-    else if (selected === 'fomdj') {
-      loadMusic('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/o@main/FOMDJ.mp3');
-    }
-    else if (selected === '2024') {
-      loadMusic('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/o@main/2024.mp3');
-    }
-    else if (selected === 'diffday') {
-      loadMusic('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/o@main/different-day.mp3');
-    }
-    else if (selected === 'backrooms') {
-      loadMusic('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/o@main/backrooms.mp3');
-    }
-    else if (selected === '24songs') {
-      loadMusic('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/o@main/24songs.mp3');
-    }
-    else if (selected === 'dgmn') {
-      loadMusic('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/o@main/dgmn.mp3');
-    }
-    else {
-      loadMusic(`/assets/audio/${selected}.mp3`);
-    }
-  });
-
-  musicUpload.addEventListener('change', function () {
-    const file = this.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        const base64Data = e.target.result;
-        localStorage.setItem('customMusic', base64Data);
-        musicSelect.value = 'custom';
-        localStorage.setItem('selectedMusic', 'custom');
-        loadMusic(base64Data);
-      };
-      reader.readAsDataURL(file);
-    }
-  });
-
-  volumeControl.addEventListener('input', function () {
-    audio.volume = this.value / 100;
-  });
-
-  playBtn.addEventListener('click', () => {
-    isStopped = false;
-    audio.play();
-  });
-
-  stopBtn.addEventListener('click', () => {
+}
+pr0xySelect.addEventListener('change', () => {
+  localStorage.setItem("pr0xy", pr0xySelect.value);
+});
+musicUpload.addEventListener('change', function () {
+  const file = this.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const base64Data = e.target.result;
+      localStorage.setItem('customMusic', base64Data);
+      musicSelect.value = 'custom';
+      localStorage.setItem('selectedMusic', 'custom');
+      loadMusic(base64Data);
+    };
+    reader.readAsDataURL(file);
+  }
+});
+musicSelect.addEventListener('change', function () {
+  const selected = this.value;
+  localStorage.setItem('selectedMusic', selected);
+  if (selected === 'custom') {
+    musicUpload.style.display = 'block';
+    const customData = localStorage.getItem('customMusic');
+    if (customData) loadMusic(customData);
+    return;
+  }
+  musicUpload.style.display = 'none';
+  if (selected === 'none') {
+    audio.pause();
+    audio.src = '';
+    return;
+  }
+  if (selected === 'solidground') {
+    loadMusic('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/o@main/solidground.mp3');
+  } else if (selected === 'pearto') {
+    loadMusic('/assets/audio/pearto.mp3');
+  } else if (selected === 'truelove') {
+    loadMusic('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/o@main/true-love.mp3');
+  } else if (selected === 'olympian') {
+    loadMusic('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/o@main/olympian.mp3');
+  } else if (selected === 'cancun') {
+    loadMusic('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/o@main/cancun.mp3');
+  } else if (selected === 'cknose') {
+    loadMusic('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/o@main/cocainenose.mp3');
+  } else if (selected === 'eviljrdn') {
+    loadMusic('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/o@main/eviljordan.mp3');
+  } else if (selected === 'fomdj') {
+    loadMusic('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/o@main/FOMDJ.mp3');
+  } else if (selected === '2024') {
+    loadMusic('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/o@main/2024.mp3');
+  } else if (selected === 'diffday') {
+    loadMusic('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/o@main/different-day.mp3');
+  } else if (selected === 'backrooms') {
+    loadMusic('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/o@main/backrooms.mp3');
+  } else if (selected === '24songs') {
+    loadMusic('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/o@main/24songs.mp3');
+  } else if (selected === 'dgmn') {
+    loadMusic('https://cdn.jsdelivr.net/gh/JustJxrdanWasDefinetlyTaken/o@main/dgmn.mp3');
+  } else {
+    loadMusic(`/assets/audio/${selected}.mp3`);
+  }
+});
+volumeControl.addEventListener('input', function () {
+  audio.volume = this.value / 100;
+  localStorage.setItem('volume', this.value);
+});
+playBtn.addEventListener('click', () => {
+  isStopped = false;
+  localStorage.setItem('isStopped', 'false');
+  audio.play();
+});
+stopBtn.addEventListener('click', () => {
+  isStopped = true;
+  localStorage.setItem('isStopped', 'true');
+  audio.pause();
+});
+window.addEventListener('DOMContentLoaded', () => {
+  const savedMusic = localStorage.getItem('selectedMusic');
+  if (savedMusic) {
+    musicSelect.value = savedMusic;
+    musicSelect.dispatchEvent(new Event('change'));
+  }
+  const savedProxy = localStorage.getItem('pr0xy');
+  if (savedProxy && [...pr0xySelect.options].some(opt => opt.value === savedProxy)) {
+    pr0xySelect.value = savedProxy;
+  }
+  const savedVol = localStorage.getItem('volume');
+  if (savedVol) {
+    volumeControl.value = savedVol;
+    audio.volume = savedVol / 100;
+  }
+  const stopped = localStorage.getItem('isStopped');
+  if (stopped === 'true') {
     isStopped = true;
     audio.pause();
-  });
-
-  window.addEventListener('DOMContentLoaded', () => {
-    const saved = localStorage.getItem('selectedMusic');
-    if (saved) {
-      musicSelect.value = saved;
-      musicSelect.dispatchEvent(new Event('change'));
-    }
-  });
+  } else {
+    isStopped = false;
+  }
+});
 </script>
 <script src="/assets/scripts/antict.js"></script>
 

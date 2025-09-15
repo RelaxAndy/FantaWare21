@@ -108,16 +108,16 @@
         </div>
         <center>
             <select id="source-selector" class="source-selector">
-                <option value="autoembed" selected>Default server (autoembed) (proxied) (no ads)</option>
+                <option value="autoembed" selected>Default server (autoembed) (no ads)</option>
                 <option value="" disabled style="font-size:15px;">-- THE REST COULD BE UNSAFE! USE AT YOUR OWN RISK --
                 </option>
-                <option value="embed-su">Server 2 (vidsrc-in) (proxied)</option>
-                <option value="moviesapiclub">Server 3 (vidsrc-pm) (proxied)</option>
-                <option value="vidbinge">Server 4 (vidsrc-me) (proxied)</option>
-                <option value="vidsrcnet">Server 5 (vidsrc-xyz) (proxied)</option>
-                <option value="doubleembed">Server 6 (2embed) (proxied)</option>
-                <option value="vidsrc-cc">Server 7 (vidsrc-cc) (unproxied)</option>
-                <option value="vidlinkpro">Server 8 (vidsrc-net) (proxied)</option>
+                <option value="embed-su">Server 2 (vidsrc-in)</option>
+                <option value="moviesapiclub">Server 3 (vidsrc-pm)</option>
+                <option value="vidbinge">Server 4 (vidsrc-me)</option>
+                <option value="vidsrcnet">Server 5 (vidsrc-xyz)</option>
+                <option value="doubleembed">Server 6 (2embed)</option>
+                <option value="vidsrc-cc">Server 7 (vidsrc-cc) (</option>
+                <option value="vidlinkpro">Server 8 (vidsrc-net)</option>
             </select>
     </main>
     </center>
@@ -148,31 +148,31 @@
 
                 switch (provider) {
                     case "vidsrc-net":
-                        baseUrl = "/active/newtab.html?autofill=https://vidsrc.net/embed";
+                        baseUrl = "https://vidsrc.net/embed";
                         break;
                     case "vidsrc-in":
-                        baseUrl = "/active/newtab.html?autofill=https://vidsrc.in/embed";
+                        baseUrl = "https://vidsrc.in/embed";
                         break;
                     case "vidsrc-pm":
-                        baseUrl = "/active/newtab.html?autofill=https://vidsrc.pm/embed";
+                        baseUrl = "https://vidsrc.pm/embed";
                         break;
                     case "vidsrc-me":
-                        baseUrl = "/active/newtab.html?autofill=https://vidsrc.me/embed";
+                        baseUrl = "https://vidsrc.me/embed";
                         break;
                     case "vidsrc-xyz":
-                        baseUrl = "/active/newtab.html?autofill=https://vidsrc.xyz/embed";
+                        baseUrl = "https://vidsrc.xyz/embed";
                         break;
                     case "2embed":
-                        baseUrl = "/active/newtab.html?autofill=https://www.2embed.skin/embed";
+                        baseUrl = "https://www.2embed.skin/embed";
                         break;
                     case "vidsrc-cc":
                         baseUrl = "https://vidsrc.cc/embed";
                         break;
                     case "autoembed":
-                        baseUrl = "/active/newtab.html?autofill=https://autoembed.pro/embed";
+                        baseUrl = "https://autoembed.pro/embed";
                         break;
                     default:
-                        baseUrl = "/active/newtab.html?autofill=https://vidsrc.net/embed";
+                        baseUrl = "https://vidsrc.net/embed";
                 }
 
                 const contentType = isTV ? "tv" : "movie";
