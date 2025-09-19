@@ -30,7 +30,9 @@
     let search =
       localStorage.getItem("search-engine") ||
       "https://duckduckgo.com/?q=%s"
+    setProxy(localStorage.getItem("pr0xy") || "scram")
 
+    setWisp((location.protocol === "https:" ? "wss://" : "ws://") + location.host + "/wisp/");
     async function autofill(url) {
       const urlToLoad = makeURL(url, search)
       const proxiedUrl = await getProxied(urlToLoad)
@@ -49,15 +51,9 @@
     } catch { }
 
 
-    //
-    // setWisp((location.protocol === "https:" ? "wss://" : "ws://") +
-    //  location.host +
-    //  "/wisp/")
-    setWisp("wss://anura.pro/");
+  //  setWisp("wss://anura.pro/");
 
-    setProxy(localStorage.getItem("pr0xy") || "scram")
 
-    setWisp((location.protocol === "https:" ? "wss://" : "ws://") + location.host + "/wisp/");
 
 
     // --- EVENTS ---
