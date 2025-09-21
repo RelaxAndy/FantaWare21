@@ -856,36 +856,12 @@ const htmlString = `                                <a class='link button' href=
                                                 width="175"><span class="span"
                                                 style="padding:15px;margin:auto;display:block;width:170px;height:25px;line-height:25px;overflow:hidden;text-align:center;white-space:nowrap;width: fit-content;"
                                                 alt="au">Edge Not Found</span></a>
-                                <a class='link button' href='/yalp/ela.html?book=eaglercraft/1122&type=local'><img
-                                                height="175" src="/assets/images/game/1122.webp"
-                                                onerror="this.src='/assets/images/no-icon-found.png'" class="image"
-                                                width="175"><span
-                                                style="padding:15px;margin:auto;display:block;width:170px;height:25px;line-height:25px;overflow:hidden;text-align:center;white-space:nowrap"
-                                                alt="eaglercraft 1.3.3">Eaglercraft 1.12.2</span></a>
-                                <a class='link button' href='/yalp/ela.html?book=eaglercraft/133&type=local'><img
-                                                height="175" src="/assets/images/game/1.3.3.png"
-                                                onerror="this.src='/assets/images/no-icon-found.png'" class="image"
-                                                width="175"><span
-                                                style="padding:15px;margin:auto;display:block;width:170px;height:25px;line-height:25px;overflow:hidden;text-align:center;white-space:nowrap"
-                                                alt="eaglercraft 1.3.3">Eaglercraft 1.3.3</span></a>
-                                <a class='link button' href='/yalp/ela.html?book=eaglercraft/152&type=local'><img
-                                                height="175" src="/assets/images/game/favicon.png"
-                                                onerror="this.src='/assets/images/no-icon-found.png'" class="image"
-                                                width="175"><span
-                                                style="padding:15px;margin:auto;display:block;width:170px;height:25px;line-height:25px;overflow:hidden;text-align:center;white-space:nowrap"
-                                                alt="eaglercraft 1.5.2">Eaglercraft 1.5.2</span></a>
                                 <a class='link button' href='/yalp/ela.html?book=eaglercraft/menu&type=local'><img
                                                 height="175" src="/assets/images/game/splash.jpeg"
                                                 onerror="this.src='/assets/images/no-icon-found.png'" class="image"
                                                 width="175"><span
                                                 style="padding:15px;margin:auto;display:block;width:170px;height:25px;line-height:25px;overflow:hidden;text-align:center;white-space:nowrap"
-                                                alt="eaglercraft 1.8.8">Eaglercraft 1.8.8</span></a>
-                                <a class='link button' href='/yalp/ela.html?book=eaglercraft/189&type=local'><img
-                                                height="175" src="/assets/images/game/1.8.9.webp"
-                                                onerror="this.src='/assets/images/no-icon-found.png'" class="image"
-                                                width="175"><span
-                                                style="padding:15px;margin:auto;display:block;width:170px;height:25px;line-height:25px;overflow:hidden;text-align:center;white-space:nowrap"
-                                                alt="eaglercraft 1.8.9">Eaglercraft 1.8.9</span></a>
+                                                alt="eaglercraft 1.8.8">All Versions Of Eaglercraft</span></a>
                                 <a class='link button' href='/yalp/ela.html?book=eggy-car&type=local'><img height="175"
                                                 src="/assets/images/game/eggy-car.png"
                                                 onerror="this.src='/assets/images/no-icon-found.png'" class="image"
