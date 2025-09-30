@@ -9,9 +9,19 @@
   const fullScreenBtn = document.getElementById('fc');
   const launchScreen  = document.getElementById('launchScreen');
 
-  // Base64-encoded API URL
-  const ENCODED_API_URL = 'aHR0cHM6Ly96ZW5hLWluc3RhbmNlLmpza2pzdjYud29ya2Vycy5kZXY=';
-  const API_URL = atob(ENCODED_API_URL); // decode at runtime
+  const ENCODED_API_URLS = [
+    'aHR0cHM6Ly96ZW5hLWluc3RhbmNlLmpza2pzdjYud29ya2Vycy5kZXY=',
+    'amRybnN2bS5jYWxjdWxyYS5zdG9yZQ==',
+    'am13dm0udHV0b3JpbmdzZXJ2aWNlcy5zaXRl'
+  ];
+  const API_URLS = ENCODED_API_URLS.map(atob);
+
+  let currentApiIndex = 0;
+  const getApiUrl = () => API_URLS[currentApiIndex] || null;
+  const nextApi = () => {
+    currentApiIndex++;
+    return getApiUrl();
+  };
 
   const MAX_SESSION_SECONDS = 900;
   const MIN_LAUNCH_INTERVAL_MS = 60000;
@@ -44,7 +54,7 @@
   async function killSession() {
     if (!sessionId) return;
     ui.setStatus('Ending session…');
-    try { await fetch(`${API_URL}/session/${sessionId}`, { method: 'DELETE' }); } catch {}
+    try { await fetch(`${getApiUrl()}/session/${sessionId}`, { method: 'DELETE' }); } catch {}
     clearInterval(countdownId);
     sessionId = null;
     ui.setStatus('Session ended');
@@ -62,6 +72,28 @@
     }, 1000);
   }
 
+  async function tryLaunch(apiUrl) {
+    try {
+      const res = await fetch(`${apiUrl}/start-vm`);
+      const data = await res.json();
+
+      if (data.error || !data.session_id) throw new Error(data.error || 'Unknown');
+
+      sessionId = data.session_id;
+      vmFrame.src = `${apiUrl}/session/${sessionId}`;
+
+      storage.setLaunch();
+      storage.bumpDaily();
+      ui.showPlayerUI();
+      beginCountdown();
+
+      vmFrame.onload = ui.clearStatus;
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
   btnLaunch.addEventListener('click', async () => {
     const now = Date.now();
     if (now - storage.lastLaunch() < MIN_LAUNCH_INTERVAL_MS) {
@@ -76,27 +108,16 @@
     ui.setLaunchBtn('Launching…', true);
     ui.clearStatus();
 
-    try {
-      const res = await fetch(`${API_URL}/start-vm`);
-      const data = await res.json();
+    let success = false;
+    currentApiIndex = 0;
 
-      if (data.error || !data.session_id) {
-        ui.setStatus(`Error: ${data.error || 'Unknown'}`);
-        ui.setLaunchBtn('Try again', false);
-        return;
-      }
+    while (getApiUrl() && !success) {
+      success = await tryLaunch(getApiUrl());
+      if (!success) nextApi();
+    }
 
-      sessionId = data.session_id;
-      vmFrame.src = `${API_URL}/session/${sessionId}`;
-
-      storage.setLaunch();
-      storage.bumpDaily();
-      ui.showPlayerUI();
-      beginCountdown();
-
-      vmFrame.onload = ui.clearStatus;
-    } catch {
-      ui.setStatus('No sessions available.');
+    if (!success) {
+      ui.setStatus('VM Failed! Loser!');
       ui.setLaunchBtn('Launch VM', false);
     }
   });
@@ -104,7 +125,7 @@
   btnEnd.addEventListener('click', killSession);
 
   window.addEventListener('beforeunload', () => {
-    if (sessionId) navigator.sendBeacon(`${API_URL}/session/${sessionId}`, '', { method: 'DELETE' });
+    if (sessionId) navigator.sendBeacon(`${getApiUrl()}/session/${sessionId}`, '', { method: 'DELETE' });
   });
 
   fullScreenBtn.addEventListener('click', () => {

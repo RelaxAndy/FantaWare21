@@ -37,3 +37,5 @@ scrapped shit
     <i class='bx bx-cake icon'></i>
   </button>
 </div>
+
+<span class="error">🚧 DOWN</span>

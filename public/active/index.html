@@ -479,7 +479,7 @@ function getHistory() {
 function saveHistory(term) {
   if (!term) return;
   let history = getHistory();
-  history = history.filter(item => item.term !== term); // remove duplicates
+  history = history.filter(item => item.term !== term);
   let url = term.startsWith('http') ? term : `https://duckduckgo.com/?q=${encodeURIComponent(term)}`;
   history.unshift({ term, title: term, url });
   if (history.length > maxHistory) history.pop();
@@ -522,7 +522,6 @@ function renderHistory(filter = '') {
 
     historyList.appendChild(li);
 
-    // staggered fade-in
     setTimeout(() => {
       li.style.opacity = 1;
       li.style.transform = 'translateY(0)';
@@ -530,17 +529,14 @@ function renderHistory(filter = '') {
   });
 }
 
-// Save on Enter
 input.addEventListener('keydown', e => {
   if (e.key === 'Enter') saveHistory(input.value);
 });
 
-// Filter in real-time
 historySearch.addEventListener('input', () => {
   renderHistory(historySearch.value);
 });
 
-// Toggle dropdown
 toggleBtn.addEventListener('click', () => {
   historyContainer.style.display =
     historyContainer.style.display === 'none' ? 'block' : 'none';
@@ -548,12 +544,10 @@ toggleBtn.addEventListener('click', () => {
   renderHistory();
 });
 
-// Close button
 closeBtn.addEventListener('click', () => {
   historyContainer.style.display = 'none';
 });
 
-// Clear all history
 clearBtn.addEventListener('click', () => {
   if (confirm('Clear all history?')) {
     localStorage.removeItem('searchHistory');
@@ -561,12 +555,16 @@ clearBtn.addEventListener('click', () => {
   }
 });
 
-// Click outside to hide
 document.addEventListener('click', e => {
   if (!historyContainer.contains(e.target) && e.target !== toggleBtn) {
     historyContainer.style.display = 'none';
   }
 });
+</script>
+<script>
+  if (window.location.search.includes("&alert=true")) {
+  alert("If the search error says 'there are no bare clients' then click the URL in our custom tabs and press enter! If you're on g^mes, some of them may take a long time to load due to their LARGE amount of assets! Be VERY patient.");
+}
 </script>
 <script type='text/javascript' src='//pl27730558.revenuecpmgate.com/65/cd/69/65cd69e2fbaffb69bf390369618ab8aa.js'>
 </script>
