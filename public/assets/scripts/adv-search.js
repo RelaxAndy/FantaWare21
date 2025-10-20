@@ -77,36 +77,6 @@ const htmlString = `            <a class='link button' target="_blank" href='htt
                                                 width="175"><span class="span"
                                                 style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
                                                 alt="12 Minibattles">12 Minibattles</span></a>
-                                <a class='link button' href='/yalp/ela.html?book=4th-and-goal/2013&type=local'><img
-                                                height="175" src="/assets/images/game/4th-and-Goal-2013.jpg"
-                                                onerror="this.src='/assets/images/no-icon-found.png'" class="image"
-                                                width="175"><span class="span"
-                                                style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
-                                                alt="4th and Goal 2013">4th and Goal 2013</span></a>
-                                <a class='link button' href='/yalp/ela.html?book=4th-and-goal/2014&type=local'><img
-                                                height="175" src="/assets/images/game/4thandgoal2014.webp"
-                                                onerror="this.src='/assets/images/no-icon-found.png'" class="image"
-                                                width="175"><span class="span"
-                                                style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
-                                                alt="4th and goal 2014">4th and Goal 2014</span></a>
-                                <a class='link button' href='/yalp/ela.html?book=4th-and-goal/2015&type=local'><img
-                                                height="175" src="/assets/images/game/4thag2015.jpg"
-                                                onerror="this.src='/assets/images/no-icon-found.png'" class="image"
-                                                width="175"><span class="span"
-                                                style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
-                                                alt="4th and goal 2015">4th and Goal 2015</span></a>
-                                <a class='link button' href='/yalp/ela.html?book=4th-and-goal/2016&type=local'><img
-                                                height="175" src="/assets/images/game/2016.png"
-                                                onerror="this.src='/assets/images/no-icon-found.png'" class="image"
-                                                width="175"><span class="span"
-                                                style="padding:15px;margin:auto;display:block;width:175px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
-                                                alt="4th and goal 2016">4th and Goal 2016</span></a>
-                                <a class='link button' href='/yalp/ela.html?book=4th-and-goal/2018&type=local'><img
-                                                height="175" src="/assets/images/game/4andgoal2018.png"
-                                                onerror="this.src='/assets/images/no-icon-found.png'" class="image"
-                                                width="175"><span class="span"
-                                                style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
-                                                alt="4th and goal 2018">4th and goal 2018</span></a>
                                 <a class='link button' href='/yalp/ela.html?book=4th-and-goal/2022&type=local'><img
                                                 height="175" src="/assets/images/game/4andgoal2022.png"
                                                 onerror="this.src='/assets/images/no-icon-found.png'" class="image"

@@ -217,17 +217,13 @@
   <div id="page-container">
     <div class="content">
       <div id="game-container">
-        <iframe class="abc" id="gameFramey"></iframe>
         <div id="cdnSelectContainer">
           <label for="cdnSelect" style="color:white;">Choose your CDN type</label>
           <select id="cdnSelect">
-            <option value="https://raw.rawgit.net/BinBashBanana/gfiles/master/gfiles/flash/index.html">RawGit
-              (lightspeed)</option>
-            <option value="https://raw.githack.com/BinBashBanana/gfiles/master/gfiles/flash/index.html">Githack
-              (LAUSD)</option>
           </select>
           <button id="cdnLoadBtn">Load Game</button>
         </div>
+        <iframe class="abc" id="gameFramey"></iframe>
         <div class="navbar">
           <div class="icon"><a href="/yalp/"><img src="/assets/images/jmw.png" alt="Icon"></a></div>
           <div class="buttons">
@@ -246,86 +242,98 @@
     <iframe id="chatIframe" src="/tahc/"></iframe>
   </div>
 
-<script>
-const urlParams = new URLSearchParams(window.location.search);
-const file = urlParams.get('book');
-const type = urlParams.get('type');
-const cdnSelectContainer = document.getElementById('cdnSelectContainer');
-const cdnSelect = document.getElementById('cdnSelect');
-const cdnLoadBtn = document.getElementById('cdnLoadBtn');
-const gameFramey = document.getElementById('gameFramey');
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const file = urlParams.get('book');
+    const type = urlParams.get('type');
+    const cdnSelectContainer = document.getElementById('cdnSelectContainer');
+    const cdnSelect = document.getElementById('cdnSelect');
+    const cdnLoadBtn = document.getElementById('cdnLoadBtn');
+    const gameFramey = document.getElementById('gameFramey');
 
-// Show CDN switcher if a file is provided
-if (file) {
-    cdnSelectContainer.style.display = 'flex';
-    gameFramey.style.display = 'none';
-}
+    if (file) {
+      if (type === "local") {
+        cdnSelect.innerHTML = `
+            <option value="https://raw.rawgit.net/galacticnetwork/gfiles/master/gfiles/html5/">RawGit [default]</option>
+            <option value="https://raw.githack.com/BinBashBanana/gfiles/master/gfiles/html5/">Githack [LAUSD]</option>
+            <option value="https://cdn.combinatronics.io/GalacticNetwork/gfiles/master/gfiles/html5/">Combinatronics [Lightspeed]</option>
+        `;
+      } else {
+        cdnSelect.innerHTML = `
+            <option value="https://raw.rawgit.net/BinBashBanana/gfiles/master/gfiles/flash/index.html">RawGit [default]</option>
+            <option value="https://raw.githack.com/BinBashBanana/gfiles/master/gfiles/flash/index.html">Githack [LAUSD]</option>
+            <option value="https://cdn.combinatronics.io/GalacticNetwork/gfiles/master/gfiles/flash/index.html">Combinatronics [Lightspeed]</option>
+        `;
+      }
+      cdnSelectContainer.style.display = 'flex';
+      gameFramey.style.display = 'none';
+    }
 
-cdnLoadBtn.addEventListener('click', () => {
-    if (!file) {
+    cdnLoadBtn.addEventListener('click', () => {
+      if (!file) {
         alert("No file specified.");
         return;
-    }
+      }
 
-    let src = "";
+      let src = "";
 
-    if (type === "swf") {
-        // SWF files use selected CDN with ?swf=
+      if (type === "swf") {
         const cdn = cdnSelect.value;
         src = cdn + "?swf=" + file;
-    } else {
-        // HTML5 files: just append the file name to selected CDN
+      } else if (type === "local") {
+        const cdn = cdnSelect.value;
+        src = cdn + file + "/index.html";
+      } else {
         const cdn = cdnSelect.value;
         src = cdn + file;
-    }
+      }
 
-    gameFramey.src = src;
-    cdnSelectContainer.style.display = 'none';
-    gameFramey.style.display = 'block';
-});
-
-// Fullscreen toggle
-function toggleFullscreen() {
-    let elem = document.querySelector('.abc');
-    if (!document.fullscreenElement) {
-        elem.requestFullscreen().catch(err => {
-            alert(`Error attempting to enable fullscreen mode: ${err.message} (${err.name})`);
-        });
-    } else {
-        document.exitFullscreen();
-    }
-}
-
-// Reload iframe
-function reload() {
-    document.getElementById("gameFramey").contentWindow.location.reload();
-}
-
-// Open record window
-function record() {
-    window.open("/record.html", "myWindow1", "scrollbars=1,height=" + screen.availHeight + ",width=" + screen.availWidth);
-}
-
-// Copy Chrome content settings URL
-function copy() {
-    const url = window.location.origin;
-    const text = "chrome://settings/content/all?searchSubpage=" + url;
-    navigator.clipboard.writeText(text).then(() => {
-        alert(text + " is now in your clipboard. Please paste the URL in the search bar in a new tab.");
+      gameFramey.src = src;
+      cdnSelectContainer.style.display = 'none';
+      gameFramey.style.display = 'block';
     });
-}
 
-// Chat toggle
-const toggleButton = document.getElementById('chatToggleButton');
-const chatContainer = document.getElementById('chatContainer');
-const closeButton = document.getElementById('chatCloseButton');
+    function toggleFullscreen() {
+      let elem = document.querySelector('.abc');
+      if (!document.fullscreenElement) {
+        elem.requestFullscreen().catch(err => {
+          alert(`Error attempting to enable fullscreen mode: ${err.message} (${err.name})`);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+    }
 
-toggleButton.addEventListener('click', () => {
-    chatContainer.style.display = (chatContainer.style.display === '' || chatContainer.style.display === 'none') ? 'block' : 'none';
-});
+    function reload() {
+      document.getElementById("gameFramey").contentWindow.location.reload();
+    }
 
-closeButton.addEventListener('click', () => { chatContainer.style.display = 'none'; });
-</script>
+    function record() {
+      window.open("/record.html", "myWindow1", "scrollbars=1,height=" + screen.availHeight + ",width=" + screen
+        .availWidth);
+    }
+
+    function copy() {
+      const url = window.location.origin;
+      const text = "chrome://settings/content/all?searchSubpage=" + url;
+      navigator.clipboard.writeText(text).then(() => {
+        alert(text + " is now in your clipboard. Please paste the URL in the search bar in a new tab.");
+      });
+    }
+
+    const toggleButton = document.getElementById('chatToggleButton');
+    const chatContainer = document.getElementById('chatContainer');
+    const closeButton = document.getElementById('chatCloseButton');
+
+    toggleButton.addEventListener('click', () => {
+      chatContainer.style.display = (chatContainer.style.display === '' || chatContainer.style.display === 'none') ?
+        'block' : 'none';
+    });
+
+    closeButton.addEventListener('click', () => {
+      chatContainer.style.display = 'none';
+    });
+  </script>
 </body>
 
 </html>
