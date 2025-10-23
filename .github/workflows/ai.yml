@@ -1,9 +1,14 @@
+
 name: Download Latest Scramjet Artifact
 
 on:
   workflow_dispatch: # allows manual trigger
   schedule:
     - cron: '0 * * * *' # runs every hour, optional — you can remove this if not needed
+
+permissions:                    # Global permissions configuration starts here
+  contents: read                # 'read' access to repository contents
+  pull-requests: write          # 'write' access to pull requests
 
 jobs:
   download-artifact:
@@ -50,17 +55,7 @@ jobs:
           ls -al ./public/scram
 
       - name: Commit and push changes
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # Stage changes
-          git add public/scram
-          
-          # Only commit if there are changes
-          if git diff --cached --quiet; then
-            echo "No changes to commit."
-          else
-            git commit -m "Update Scramjet artifact (auto-sync)"
-            git push
-          fi
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
