@@ -35,6 +35,12 @@ const htmlString = `            <a class='link button' target="_blank" href='htt
                                                 class="span"
                                                 style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
                                                 alt="2048">8 Ball Classic</span></a>
+                                <a class='link button' href='/active/index.html?autofill=https://db.quackprep.org/html/99_nights_in_the_forest/' data-tag="exclusive"><img
+                                                height="175" src="/assets/images/game/99nights.png"
+                                                onerror="this.src='/assets/images/no-icon-found.png'" class="image"
+                                                width="175"><span class="span"
+                                                style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
+                                                alt="">99 Nights In The Forest</span></a>
                                 <a class='link button'  href='/active/index.html?autofill=https://raw.githack.com/gameazzetz/assets/refs/heads/main/1v1lolold.html'><img
                                                 height="175" src="/assets/images/game/1v1lolold.jpeg"
                                                 onerror="this.src='/assets/images/no-icon-found.png'" class="image"
@@ -532,6 +538,12 @@ const htmlString = `            <a class='link button' target="_blank" href='htt
                                                 width="175"><span class="span"
                                                 style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
                                                 alt="">Bergentruck 201X</span></a>
+                                <a class='link button' href='/yalp/ela.html?book=blackjack&type=local' data-tag="exclusive"><img
+                                                height="175" src="/assets/images/game/bj.png"
+                                                onerror="this.src='/assets/images/no-icon-found.png'" class="image"
+                                                width="175"><span class="span"
+                                                style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
+                                                alt="">24/7 Blackjack</span></a>
                                 <a class='link button' href='/active/index.html?autofill=https://crazy-cattle3d.org/game/crazycattle3d/'><img
                                                 height="175" src="/assets/images/game/cc3d.jpg"
                                                 onerror="this.src='/assets/images/no-icon-found.png'" class="image"
@@ -718,6 +730,18 @@ const htmlString = `            <a class='link button' target="_blank" href='htt
                                                 width="175"><span class="span"
                                                 style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
                                                 alt="gs">Celeste 2</span></a>
+                                <a class='link button' href='/yalp/ela.html?book=chess&type=local' data-tag="exclusive"><img
+                                                height="175" src="/assets/images/game/chess.png"
+                                                onerror="this.src='/assets/images/no-icon-found.png'" class="image"
+                                                width="175"><span class="span"
+                                                style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
+                                                alt="">24/7 Chess</span></a>
+                                <a class='link button' href='/active/index.html?autofill=https://raw.githack.com/web-ports/cuphead/refs/heads/main/index.html' data-tag="exclusive"><img
+                                                height="175" src="/assets/images/game/cuphead.png"
+                                                onerror="this.src='/assets/images/no-icon-found.png'" class="image"
+                                                width="175"><span class="span"
+                                                style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
+                                                alt="">Cuphead</span></a>
                                 <a class='link button' href='/yalp/ela.html?book=dad-n-me&type=local'><img height="175"
                                                 src="/assets/images/game/dad-n-me.webp"
                                                 onerror="this.src='/assets/images/no-icon-found.png'" class="image"
@@ -903,7 +927,7 @@ const htmlString = `            <a class='link button' target="_blank" href='htt
                                                 onerror="this.src='/assets/images/no-icon-found.png'" class="image"
                                                 width="175"><span
                                                 style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
-                                                alt="eaglercraft 1.8.8">All Versions Of Eaglercraft</span></a>
+                                                alt="eaglercraft 1.8.8">Minecraft Versions</span></a>
                                 <a class='link button' href='/active/index.html?autofill=https://webglmath.github.io/eggy-car/'><img height="175"
                                                 src="/assets/images/game/eggy-car.png"
                                                 onerror="this.src='/assets/images/no-icon-found.png'" class="image"
@@ -2015,6 +2039,12 @@ const htmlString = `            <a class='link button' target="_blank" href='htt
                                                 width="175"><span
                                                 style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
                                                 alt="roblox">Pizza Tower</span></a>
+                                <a class='link button' href='/yalp/ela.html?book=poker&type=local' data-tag="exclusive"><img
+                                                height="175" src="/assets/images/game/poker.png"
+                                                onerror="this.src='/assets/images/no-icon-found.png'" class="image"
+                                                width="175"><span class="span"
+                                                style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
+                                                alt="">24/7 Poker</span></a>
                                 <a class='link button' href='/active/index.html?autofill=https://g.vseigru.net/7/igra-kvantovaya-geometriya-dash/' data-tag="exclusive"><img
                                                 height="175" src="/assets/images/game/qg.jpeg"
                                                 onerror="this.src='/assets/images/no-icon-found.png'" class="image"
