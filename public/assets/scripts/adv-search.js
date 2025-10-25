@@ -1103,7 +1103,55 @@ const htmlString = `            <a class='link button' target="_blank" href='htt
                                                 onerror="this.src='/assets/images/no-icon-found.png'" class="image"
                                                 width="175"><span class="span"
                                                 style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
-                                                alt="friday night funkin" class="buggy">Friday Night Funkin  Indie Cross</span></a>
+                                                alt="friday night funkin" class="buggy">Friday Night Funkin Indie Cross</span></a>
+                                <a class='link button' href='/yalp/ela.html?book=fnf/imposter&type=local' data-tag="exclusive"><img
+                                                height="175" src="/assets/images/game/imposter-fnf.png"
+                                                onerror="this.src='/assets/images/no-icon-found.png'" class="image"
+                                                width="175"><span class="span"
+                                                style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
+                                                alt="">Friday Night Funkin Vs. Imposter v4</span></a>
+                                <a class='link button' href='/yalp/ela.html?book=fnf/whitty' data-tag="exclusive"><img
+                                                height="175" src="/assets/images/game/whitty.png"
+                                                onerror="this.src='/assets/images/no-icon-found.png'" class="image"
+                                                width="175"><span class="span"
+                                                style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
+                                                alt="">Friday Night Funkin Vs. Whitty</span></a>
+                                <a class='link button' href='/yalp/ela.html?book=fnf/sky&type=local' data-tag="exclusive"><img
+                                                height="175" src="/assets/images/game/sky.png"
+                                                onerror="this.src='/assets/images/no-icon-found.png'" class="image"
+                                                width="175"><span class="span"
+                                                style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
+                                                alt="">Friday Night Funkin Vs. Sky</span></a>
+                                <a class='link button' href='/yalp/ela.html?book=fnf/hex&type=local' data-tag="exclusive"><img
+                                                height="175" src="/assets/images/game/hex.png"
+                                                onerror="this.src='/assets/images/no-icon-found.png'" class="image"
+                                                width="175"><span class="span"
+                                                style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
+                                                alt="">Friday Night Funkin Vs. Hex</span></a>
+                                <a class='link button' href='/yalp/ela.html?book=fnf/pibby&type=local' data-tag="exclusive"><img
+                                                height="175" src="/assets/images/game/pibby.png"
+                                                onerror="this.src='/assets/images/no-icon-found.png'" class="image"
+                                                width="175"><span class="span"
+                                                style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
+                                                alt="">Friday Night Funkin; Pibby Apocalypse</span></a>
+                                <a class='link button' href='/yalp/ela.html?book=fnf/miku&type=local' data-tag="exclusive"><img
+                                                height="175" src="/assets/images/game/miku.png"
+                                                onerror="this.src='/assets/images/no-icon-found.png'" class="image"
+                                                width="175"><span class="span"
+                                                style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
+                                                alt="">Friday Night Funkin Vs. Hatsune Miku</span></a>
+                                <a class='link button' href='/yalp/ela.html?book=fnf/shaggy&type=local' data-tag="exclusive"><img
+                                                height="175" src="/assets/images/game/shaggy.png"
+                                                onerror="this.src='/assets/images/no-icon-found.png'" class="image"
+                                                width="175"><span class="span"
+                                                style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
+                                                alt="">Friday Night Funkin Vs. Shaggy</span></a>
+                                <a class='link button' href='/yalp/ela.html?book=fnf/sonicexe&type=local' data-tag="exclusive"><img
+                                                height="175" src="/assets/images/game/sonicexe.png"
+                                                onerror="this.src='/assets/images/no-icon-found.png'" class="image"
+                                                width="175"><span class="span"
+                                                style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
+                                                alt="">Friday Night Funkin Vs. Sonic EXE</span></a>
                                 <a class='link button' href='/yalp/ela.html?book=football-legends&type=local'><img
                                                 height="175" src="/assets/images/game/football-legends-2021.jpg"
                                                 onerror="this.src='/assets/images/no-icon-found.png'" class="image"
@@ -1458,7 +1506,13 @@ const htmlString = `            <a class='link button' target="_blank" href='htt
                                                 onerror="this.src='/assets/images/no-icon-found.png'" class="image"
                                                 width="175"><span
                                                 style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
-                                                alt="roblox">Human Expenditure  Program</span></a>
+                                                alt="roblox">Human Expenditure Program</span></a>
+                                <a class='link button' href='/yalp/ela.html?book=hypper&type=local' data-tag="exclusive"><img
+                                                height="175" src="/assets/images/game/hs.png"
+                                                onerror="this.src='/assets/images/no-icon-found.png'" class="image"
+                                                width="175"><span class="span"
+                                                style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
+                                                alt="">Hypper Sandbox</span></a>
                                 <a class='link button' href='/yalp/ela.html?book=iceagebaby&type=3kh0'><img height="175"
                                                 src="/assets/images/game/iceage.png"
                                                 onerror="this.src='/assets/images/no-icon-found.png'" class="image"
@@ -1514,6 +1568,12 @@ const htmlString = `            <a class='link button' target="_blank" href='htt
                                                 width="175"><span class="span"
                                                 style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
                                                 alt="tetris">Infinite Mario</span></a>
+                                <a class='link button' href='/active/index.html?autofill=https://edu.aptutorfinder.com/assets/storage/flash/idek/' data-tag="exclusive"><img
+                                                height="175" src="/assets/images/game/idek.png"
+                                                onerror="this.src='/assets/images/no-icon-found.png'" class="image"
+                                                width="175"><span class="span"
+                                                style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
+                                                alt="">I Don't Even Know</span></a>
                                 <a class='link button' href='/yalp/ela.html?book=just-one-boss&type=3kh0'><img
                                                 height="175" src="/assets/images/game/one-boss.png"
                                                 onerror="this.src='/assets/images/no-icon-found.png'" class="image"
@@ -1755,6 +1815,12 @@ const htmlString = `            <a class='link button' target="_blank" href='htt
                                                 width="175"><span class="span"
                                                 style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
                                                 alt="">Milkman Karlson</span></a>
+                                <a class='link button' href='/yalp/ela.html?book=mk64&type=local' data-tag="exclusive"><img
+                                                height="175" src="/assets/images/game/mk64.png"
+                                                onerror="this.src='/assets/images/no-icon-found.png'" class="image"
+                                                width="175"><span class="span"
+                                                style="padding:15px;margin:auto;display:block;width:170px;height:45px;line-height:25px;overflow:hidden;text-align:center;white-space:wrap;"
+                                                alt="">Mario Kart 64</span></a>
                                 <a class='link button' href='/active/index.html?autofill=https://script.google.com/macros/s/AKfycby7GbJHyEsIp1s0_j_9sRCGYwQ4UutwyRDb1oRtIJtvZRGfmdeSGAZc_ZL6ENLRiDNiTg/exec'><img
                                                 height="175" src="/assets/images/game/noob-steve-parkour.png"
                                                 onerror="this.src='/assets/images/no-icon-found.png'" class="image"
