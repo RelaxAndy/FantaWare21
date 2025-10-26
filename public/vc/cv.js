@@ -618,19 +618,10 @@ function createRoom() {
         return;
     }
 
-    const id = name.replace(/\s+/g, '_');
-    const data = {
-        name: name,
-        type: roomType,
-        creator: username,
-        created: Date.now()
-    };
-
-    if (pass && roomType === 'private') data.password = pass;
-
-    set(ref(db, `rooms/${roomType}/${id}`), data);
-    hideCreateModal();
-}
+    if (name.length > 15) {
+        alert('Room name must be 15 characters or less!');
+        return;
+    }
 
 window.setUsername = setUsername;
 window.toggleMic = toggleMic;
